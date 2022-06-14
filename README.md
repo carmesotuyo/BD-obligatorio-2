@@ -113,7 +113,7 @@ agregar script final
 ```
 ### Resultado obtenido
 
-### Algebra relacional
+### Cálculo relacional de tuplas
 
 ### Justificación
 
@@ -124,8 +124,6 @@ agregar script final
 ```
 ### Resultado obtenido
 
-### Algebra relacional
-
 ### Justificación
 
 ## Ejercicio 7
@@ -134,8 +132,6 @@ agregar script final
 agregar script final
 ```
 ### Resultado obtenido
-
-### Algebra relacional
 
 ### Justificación
 
@@ -146,8 +142,6 @@ agregar script final
 ```
 ### Resultado obtenido
 
-### Algebra relacional
-
 ### Justificación
 
 ## Ejercicio 9
@@ -157,8 +151,6 @@ agregar script final
 ```
 ### Resultado obtenido
 
-### Algebra relacional
-
 ### Justificación
 
 ## Ejercicio 10
@@ -167,7 +159,5 @@ agregar script final
 agregar script final
 ```
 ### Resultado obtenido
-
-### Algebra relacional
 
 ### Justificación
