@@ -41,3 +41,4 @@ insert into DONACION values ('pepito@hotmail.com', 'maria@hotmail.com', DATE '20
 insert into DONACION values ('maria@hotmail.com', 'juanita@hotmail.com', DATE '2020-10-11', DATE '2020-10-12', 200, 'PENDIENTE');
 insert into DONACION values ('pepito@hotmail.com', 'juanita@hotmail.com', DATE '2020-10-11', DATE '2020-10-12', 300, 'PENDIENTE');
 insert into DONACION values ('juanita@hotmail.com', 'maria@hotmail.com', DATE '2021-10-11', DATE '2021-10-12', 200, 'PENDIENTE');
+insert into DONACION values ('pepito@hotmail.com', 'juanita@hotmail.com', DATE '2022-10-11', DATE '2022-10-12', 300, 'APROBADA');
