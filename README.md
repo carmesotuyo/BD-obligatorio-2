@@ -112,11 +112,17 @@ Obtenemos los usuarios que realizaron donaciones a más de un usuario haciendo u
 agregar script final
 ```
 ### Resultado obtenido
+![Captura de Pantalla 2022-06-14 a la(s) 17 04 13](https://user-images.githubusercontent.com/101828758/173678690-91fcb678-ef2a-45b7-9bac-8894c50f90ff.png)
 
 ### Cálculo relacional de tuplas
-
+{u.email, u.nickname | USUARIO(u) AND u.fechaNac...   
+&emsp;&emsp;&emsp;&emsp;AND (∀ cat)(CATEGORIA(cat)&rarr;(∃ c)(CONTENIDO(c)  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;AND c.dominio = 'PUBLICO'  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;AND c.emailUsuario = u.email  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;AND c.codCategoria = cat.codCategoria)  
+&emsp;&emsp;&emsp;&emsp;)}
 ### Justificación
-
+Seleccionamos los usuarios mayores de 18 años y aplicamos un cociente sobre estos, de modo que no exista una categoria de la cual no hayan compartido contenido. Dentro del cociente filtramos el contenido por su dominio.
 ## Ejercicio 6
 ### Script SQL
 ```
