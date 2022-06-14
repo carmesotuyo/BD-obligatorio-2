@@ -8,12 +8,24 @@
 | Licenciatura en Sistemas |
 | Universidad ORT Uruguay |
 
+# REFERENCIAS PARA NOSOTROS
+| simbolo en markdown | significado |
+|---|---|
+| & larr ; (todo junto) | flechita <- |
+| sub entre &lt;&gt; | subindice |
+| dos espacios despues de la linea | salto de linea en los de algebra relacional |
+| & lt ; y & gt ; (todo junto) | simbolos de &lt; y &gt; |
+
 ## Ejercicio 1
 ### Script SQL
 ```
 agregar script final
 ```
 ### Resultado obtenido
+opcion 1
+![Captura de Pantalla 2022-06-14 a la(s) 10 30 52](https://user-images.githubusercontent.com/101828758/173589297-54e6521e-9f6a-4d94-8735-d9ec36933a3e.png)
+opcion 2
+![Captura de Pantalla 2022-06-14 a la(s) 10 31 16](https://user-images.githubusercontent.com/101828758/173589382-d55161fb-a34c-4066-9a91-6552ba2070dc.png)
 
 ### Algebra relacional
 Musica &larr; Π<sub>codCategoria</sub>(σ<sub>nombreCategoria='Musica'</sub>(CATEGORIA))  
@@ -38,6 +50,7 @@ Los usuarios que compartieron contenido de una u otra categoría, pero no ambas,
 agregar script final
 ```
 ### Resultado obtenido
+![Captura de Pantalla 2022-06-14 a la(s) 10 31 53](https://user-images.githubusercontent.com/101828758/173589508-a56dbcd6-e4c5-4824-9e02-68fd143bd0ce.png)
 
 ### Algebra relacional
 Musica &larr; Π<sub>codCategoria</sub>(σ<sub>nombreCategoria = ‘Musica’</sub>(CATEGORIA))  
@@ -56,9 +69,18 @@ agregar script final
 ### Resultado obtenido
 
 ### Algebra relacional
-  
+Visualizados &larr; Π<sub>codContenido</sub>(VISUALIZACION)  
+LoL &larr; Π<sub>codCategoria</sub>(σ<sub>nombreCategoria = 'LoL'</sub>(CATEGORIA))  
+Publicos &larr; σ<sub>dominio = 'PUBLICO'</sub>(CONTENIDO)  
+ContsLoLPublicos &larr; Publicos * LoL  
+ContsLoLPublicosVis &larr; ContsLoLPublicos * Visualizados  
+R1 &larr; ρ<sub>c1</sub>(ContsLoLPublicosVis) ⋈<sub>c1.fechaEmision&lt;c2.fechaEmision</sub> ρ<sub>c2</sub>(ContsLoLPublicosVis)  
+FechaMin &larr; Π<sub>c1.fechaEmision</sub>(R1) -  Π<sub>c2.fechaEmision</sub>(R1)  
+CumplenTodo &larr; σ<sub>fechaEmision = FechaMin</sub>(ContsLoLPublicosVis)  
+ConUsuario &larr; CumplenTodo ⋈<sub>emailUsuario = email</sub> USUARIO  
+Π<sub>titulo, email, nickname</sub>(ConUsuario)
 ### Justificación
-
+Buscamos la fecha mínima (es decir la más antigua) de publicación de contenido que cumpla con las condiciones indicadas (de categoría LoL, dominio público y visualizada al menos una vez). Al obtener esa fecha podemos volver a aplicar los mismos filtros e incluir que la fecha de emisión coincida con la fecha más antigua obtenida.
 ## Ejercicio 4
 ### Script SQL
 ```
