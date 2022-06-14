@@ -67,6 +67,7 @@ Obtenemos el código de la categoría Música y con este los contenidos que corr
 agregar script final
 ```
 ### Resultado obtenido
+![Captura de Pantalla 2022-06-14 a la(s) 10 45 08](https://user-images.githubusercontent.com/101828758/173592461-624c26fe-681a-45a3-8b67-dcd5acfa693b.png)
 
 ### Algebra relacional
 Visualizados &larr; Π<sub>codContenido</sub>(VISUALIZACION)  
@@ -89,7 +90,7 @@ agregar script final
 ### Resultado obtenido
 
 ### Algebra relacional
-  
+
 ### Justificación
 
 ## Ejercicio 5
@@ -100,7 +101,7 @@ agregar script final
 ### Resultado obtenido
 
 ### Algebra relacional
-  
+
 ### Justificación
 
 ## Ejercicio 6
@@ -111,7 +112,7 @@ agregar script final
 ### Resultado obtenido
 
 ### Algebra relacional
-  
+
 ### Justificación
 
 ## Ejercicio 7
@@ -122,7 +123,7 @@ agregar script final
 ### Resultado obtenido
 
 ### Algebra relacional
-  
+
 ### Justificación
 
 ## Ejercicio 8
@@ -133,7 +134,7 @@ agregar script final
 ### Resultado obtenido
 
 ### Algebra relacional
-  
+
 ### Justificación
 
 ## Ejercicio 9
@@ -144,7 +145,7 @@ agregar script final
 ### Resultado obtenido
 
 ### Algebra relacional
-  
+
 ### Justificación
 
 ## Ejercicio 10
@@ -155,5 +156,5 @@ agregar script final
 ### Resultado obtenido
 
 ### Algebra relacional
-  
+
 ### Justificación
