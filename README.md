@@ -15,6 +15,7 @@
 | sub entre &lt;&gt; | subindice |
 | dos espacios despues de la linea | salto de linea en los de algebra relacional |
 | & lt ; y & gt ; (todo junto) | simbolos de &lt; y &gt; |
+| & emsp ; (todo junto) | 4 espacios indentados |
 
 ## Ejercicio 1
 ### Script SQL
@@ -115,7 +116,7 @@ agregar script final
 ![Captura de Pantalla 2022-06-14 a la(s) 17 04 13](https://user-images.githubusercontent.com/101828758/173678690-91fcb678-ef2a-45b7-9bac-8894c50f90ff.png)
 
 ### Cálculo relacional de tuplas
-{u.email, u.nickname | USUARIO(u) AND u.fechaNac...   
+{u.email, u.nickname | USUARIO(u) AND (sysdate - u.fechaNac)/365 > 18   
 &emsp;&emsp;&emsp;&emsp;AND (∀ cat)(CATEGORIA(cat)&rarr;(∃ c)(CONTENIDO(c)  
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;AND c.dominio = 'PUBLICO'  
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;AND c.emailUsuario = u.email  
