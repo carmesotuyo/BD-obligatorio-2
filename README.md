@@ -16,12 +16,12 @@ agregar script final
 ### Resultado obtenido
 
 ### Algebra relacional
-Musica &larr; Π<sub>codCategoria</sub>(σ<sub>nombreCategoria=’Musica’</sub>(CATEGORIA))  
-Fortnite &larr; Π<sub>codCategoria</sub>(σ<sub>nombreCategoria=’Fortnite’</sub>(CATEGORIA))  
+Musica &larr; Π<sub>codCategoria</sub>(σ<sub>nombreCategoria='Musica'</sub>(CATEGORIA))  
+Fortnite &larr; Π<sub>codCategoria</sub>(σ<sub>nombreCategoria='Fortnite'</sub>(CATEGORIA))  
 ContenidoMusica &larr; CONTENIDO * Musica  
 ContenidoFortnite &larr; CONTENIDO * Fortnite  
-MusicaMayo22 &larr; σ<sub>fechaEmision>=’2022-05-01’ AND fechaEmision<=’2022-05-31’</sub>(ContenidoMusica)  
-FortniteMayo22 &larr; σ<sub>fechaEmision>=’2022-05-01’ AND fechaEmision<=’2022-05-31’</sub>(ContenidoFortnite)  
+MusicaMayo22 &larr; σ<sub>fechaEmision&gt;='2022-05-01' AND fechaEmision&lt;='2022-05-31'</sub>(ContenidoMusica)  
+FortniteMayo22 &larr; σ<sub>fechaEmision&gt;='2022-05-01' AND fechaEmision&lt;='2022-05-31'</sub>(ContenidoFortnite)  
 UsuariosMusica &larr; Π<sub>emailUsuario</sub>(MusicaMayo22)  
 UsuariosFortnite &larr; Π<sub>emailUsuario</sub>(FortniteMayo22)  
 UnionUsuariosMyF &larr; UsuariosMusica ∪ UsuariosFortnite  
@@ -40,9 +40,14 @@ agregar script final
 ### Resultado obtenido
 
 ### Algebra relacional
+Musica &larr; Π<sub>codCategoria</sub>(σ<sub>nombreCategoria = ‘Musica’</sub>(CATEGORIA))  
+ContsMusica &larr; CONTENIDO * Musica  
+Privados &larr; σ<sub>dominio = ‘Privado’</sub>(Π<sub>codContenido, Titulo, emailUsuario, dominio </sub>(ContsMusica))  
+ConVisualizaciones &larr; VISUALIZACIONES ⋈<sub>$1==$4 AND $2&lt;&gt;$6 AND $3&gt;='2022-05-01' AND $3&lt;= '2022-05-31'</sub>Privados  
+Π<sub>Titulo </sub> (ConVisualizaciones)
   
 ### Justificación
-
+Obtenemos el código de la categoría Música y con este los contenidos que corresponden a dicha categoría. De esos filtramos los que son de dominio Privado. Finalmente realizamos un join con la tabla Visualizaciones con las condiciones necesarias de fecha e email. De todo eso proyectamos únicamente el título.
 ## Ejercicio 3
 ### Script SQL
 ```
