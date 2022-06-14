@@ -34,10 +34,10 @@ insert into VISUALIZACION values ('13', 'juanita@hotmail.com', DATE '2022-06-05'
 insert into VISUALIZACION values ('13', 'pepito@hotmail.com', DATE '2022-03-05');
 
 --Datos de DONACION
-insert into DONACION values ('juanita@hotmail.com', 'pepito@hotmail.com', '2022-03-05', '2022-03-06', 100, 'PENDIENTE');
-insert into DONACION values ('maria@hotmail.com', 'pepito@hotmail.com', '2021-10-11', '2021-10-12', 200, 'PENDIENTE');
-insert into DONACION values ('pepito@hotmail.com', 'maria@hotmail.com', '2021-10-11', '2021-10-12', 200, 'APROBADA');
-insert into DONACION values ('pepito@hotmail.com', 'maria@hotmail.com', '2021-10-11', '2021-10-12', 400, 'PENDIENTE');
-insert into DONACION values ('maria@hotmail.com', 'juanita@hotmail.com', '2020-10-11', '2020-10-12', 200, 'PENDIENTE');
-insert into DONACION values ('pepito@hotmail.com', 'juanita@hotmail.com', '2020-10-11', '2020-10-12', 300, 'PENDIENTE');
-insert into DONACION values ('juanita@hotmail.com', 'maria@hotmail.com', '2021-10-11', '2021-10-12', 200, 'PENDIENTE');
+insert into DONACION values ('juanita@hotmail.com', 'pepito@hotmail.com', DATE '2022-03-05', DATE '2022-03-06', 100, 'PENDIENTE');
+insert into DONACION values ('maria@hotmail.com', 'pepito@hotmail.com', DATE '2021-10-11', DATE '2021-10-12', 200, 'PENDIENTE');
+insert into DONACION values ('pepito@hotmail.com', 'maria@hotmail.com', DATE '2021-10-11', DATE '2021-10-12', 200, 'APROBADA');
+insert into DONACION values ('pepito@hotmail.com', 'maria@hotmail.com', DATE '2021-10-12', DATE '2021-10-13', 400, 'PENDIENTE');
+insert into DONACION values ('maria@hotmail.com', 'juanita@hotmail.com', DATE '2020-10-11', DATE '2020-10-12', 200, 'PENDIENTE');
+insert into DONACION values ('pepito@hotmail.com', 'juanita@hotmail.com', DATE '2020-10-11', DATE '2020-10-12', 300, 'PENDIENTE');
+insert into DONACION values ('juanita@hotmail.com', 'maria@hotmail.com', DATE '2021-10-11', DATE '2021-10-12', 200, 'PENDIENTE');
