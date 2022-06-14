@@ -112,7 +112,16 @@ where u.email in (  select d.emailDestino
                     group by d.emailDestino
                     having count(*) > 1 );
 --Ejercicio 5
-
+select *
+from USUARIO u
+where (sysdate - u.fechaNac)/365 > 18
+and not exists (  select 1
+                  from CATEGORIA cat
+                  where not exists ( select 1
+                                     from CONTENIDO c
+                                     where c.dominio = 'PUBLICO'
+                                     and c.emailUsuario = u.email
+                                     and c.codCategoria = cat.codCategoria) )
 --Ejercicio 6
 
 --Ejercicio 7
