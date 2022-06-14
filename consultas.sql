@@ -97,7 +97,20 @@ and cont.fechaEmision in (  select min(fechaEmision)
                                                         from VISUALIZACION)             );
 																												
 --Ejercicio 4
-
+select u.nickname 
+from USUARIO u
+where u.email in (  select d.emailDestino
+                    from DONACION d
+                    where d.estadoDonacion = 'PENDIENTE'
+                    and d.fechaCreacion > DATE '2021-10-10'
+                    and d.emailDestino in ( select distinct(d.emailOrigen)
+                                            from DONACION d, DONACION do
+                                            where d.emailOrigen = do.emailOrigen
+                                            and d.emailDestino < do.emailDestino
+                                            and d.fechaCreacion > DATE '2021-10-10'
+                                            and do.fechaCreacion > DATE '2021-10-10' )
+                    group by d.emailDestino
+                    having count(*) > 1 );
 --Ejercicio 5
 
 --Ejercicio 6
