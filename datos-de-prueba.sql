@@ -32,6 +32,7 @@ insert into CONTENIDO values ('16', 'Titulo16', DATE '2019-04-05', 'fulano@hotma
 insert into CONTENIDO values ('17', 'Titulo17', DATE '2019-04-06', 'fulano@hotmail.com', 02, 'PUBLICO');
 insert into CONTENIDO values ('18', 'Titulo18', DATE '2019-04-07', 'fulano@hotmail.com', 03, 'PUBLICO');
 insert into CONTENIDO values ('19', 'Titulo19', DATE '2019-04-08', 'fulano@hotmail.com', 04, 'PUBLICO');
+insert into CONTENIDO values ('20', 'Titulo20', DATE '2019-04-08', 'juanita@hotmail.com', 03, 'PUBLICO');
 
 --Datos de VISUALIZACION
 insert into VISUALIZACION values ('09', 'maria@hotmail.com', DATE '2022-05-05');
