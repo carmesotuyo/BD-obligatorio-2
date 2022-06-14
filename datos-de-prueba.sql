@@ -10,6 +10,7 @@ insert into USUARIO values ('pepito@hotmail.com', 'Pepito', 'pepito22', DATE '19
 insert into USUARIO values ('juanita@hotmail.com', 'Juanita', 'juanita22', DATE '2000-09-03');
 insert into USUARIO values ('maria@hotmail.com', 'Maria', 'maria22', DATE '1990-10-12');
 insert into USUARIO values ('pedro@hotmail.com', 'Pedro', 'pedro22', DATE '1994-11-06');
+insert into USUARIO values ('pedro@hotmail.com', 'Pedro', 'pedro22', DATE '1994-11-06');
 
 --Datos de CONTENIDO
 insert into CONTENIDO values ('01', 'Titulo1', DATE '2022-05-01', 'carmesotuyo@hotmail.com', 01, 'PRIVADO');
@@ -25,6 +26,12 @@ insert into CONTENIDO values ('10', 'Titulo10', DATE '2020-05-31', 'juanita@hotm
 insert into CONTENIDO values ('11', 'Titulo11', DATE '2019-08-05', 'maria@hotmail.com', 02, 'PRIVADO');
 insert into CONTENIDO values ('12', 'Titulo12', DATE '2020-05-31', 'pepito@hotmail.com', 02, 'PUBLICO');
 insert into CONTENIDO values ('13', 'Titulo13', DATE '2022-08-05', 'maria@hotmail.com', 02, 'PUBLICO');
+insert into CONTENIDO values ('14', 'Titulo14', DATE '2019-08-05', 'pepito@hotmail.com', 03, 'PUBLICO');
+insert into CONTENIDO values ('15', 'Titulo15', DATE '2019-08-06', 'pepito@hotmail.com', 01, 'PUBLICO');
+insert into CONTENIDO values ('16', 'Titulo16', DATE '2019-04-05', 'fulano@hotmail.com', 01, 'PUBLICO');
+insert into CONTENIDO values ('17', 'Titulo17', DATE '2019-04-06', 'fulano@hotmail.com', 02, 'PUBLICO');
+insert into CONTENIDO values ('18', 'Titulo18', DATE '2019-04-07', 'fulano@hotmail.com', 03, 'PUBLICO');
+insert into CONTENIDO values ('19', 'Titulo19', DATE '2019-04-08', 'fulano@hotmail.com', 04, 'PUBLICO');
 
 --Datos de VISUALIZACION
 insert into VISUALIZACION values ('09', 'maria@hotmail.com', DATE '2022-05-05');
