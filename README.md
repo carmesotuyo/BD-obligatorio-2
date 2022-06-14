@@ -91,6 +91,9 @@ agregar script final
 ![Captura de Pantalla 2022-06-14 a la(s) 12 48 00](https://user-images.githubusercontent.com/101828758/173620585-7df8ae3c-c89d-4473-a2c5-825cd510741b.png)
 
 ### Algebra relacional
+DonacionesPosFecha %larr; σ<sub>fechaCreacion&gt;'2021-10-10'</sub>(DONACION)  
+DonaronAMasDeUno &larr; DonacionesPosFecha d1 ⋈<sub>d1.emailOrigen = d2.emailOrigen AND d1.emailDestino &lt; d2.emailDestino</sub> DonacionesPosFecha d2  
+EmailDonadores &larr; Π<sub>emailOrigen</sub>(DonaronAMasDeUno)  
 
 ### Justificación
 Obtenemos los usuarios que realizaron donaciones a más de un usuario haciendo un join con la misma tabla, siendo de igual email origen pero distinto email destino. Comparamos el email destino con &lt; en lugar de &lt;&gt; para eliminar las tuplas duplicadas con los datos invertidos. Luego obtenemos los emails de usuarios que recibieron más de una donación de estado Pendiente, y que además se encuentran entre los donantes de la subconsulta anterior. Finalmente hacemos join con Usuario para obtener su nickname.
