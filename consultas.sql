@@ -150,6 +150,8 @@ from USUARIO u
 where u.email in (  select u2.email 
                     from USUARIO u2, VISUALIZACION v2
                     where u2.email = v2.emailUsuario
+                    and v2.fecha >= DATE '2022-04-01'
+                    and v2.fecha <= DATE '2022-04-30'
                     having count(*) = ( select max(count(*)) 
                                         from VISUALIZACION v
                                         where v.fecha >= DATE '2022-04-01'
