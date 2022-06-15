@@ -134,9 +134,10 @@ Seleccionamos los usuarios mayores de 18 años y aplicamos un cociente sobre est
 agregar script final
 ```
 ### Resultado obtenido
+![Captura de Pantalla 2022-06-15 a la(s) 10 17 29](https://user-images.githubusercontent.com/101828758/173836382-e367ac8d-868f-4113-a761-d980dd9851bd.png)
 
 ### Justificación
-
+Realizamos la union de dos consultas, por un lado aquellas cuyo estado es aprobado y por otro las pendientes. En las pendientes indicamos que la columna de estado diga 'Transacción programada'. En ambas renombramos la columna fechaAcreditación por Fecha. También filtramos en ambas consultas por usuarios cuyo nickname sea de largo mayor o igual a 5 caracteres.
 ## Ejercicio 7
 ### Script SQL
 ```
