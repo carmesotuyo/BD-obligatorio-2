@@ -11,6 +11,8 @@ insert into USUARIO values ('juanita@hotmail.com', 'Juanita', 'juanita22', DATE 
 insert into USUARIO values ('maria@hotmail.com', 'Maria', 'maria22', DATE '1990-10-12');
 insert into USUARIO values ('pedro@hotmail.com', 'Pedro', 'pedro22', DATE '1994-11-06');
 insert into USUARIO values ('pedro@hotmail.com', 'Pedro', 'pedro22', DATE '1994-11-06');
+insert into USUARIO values ('ali@hotmail.com', 'Ali', 'ali', DATE '1999-07-14');
+insert into USUARIO values ('julio@hotmail.com', 'Julio', 'julio', DATE '1960-05-23');
 
 --Datos de CONTENIDO
 insert into CONTENIDO values ('01', 'Titulo1', DATE '2022-05-01', 'carmesotuyo@hotmail.com', 01, 'PRIVADO');
@@ -50,3 +52,8 @@ insert into DONACION values ('maria@hotmail.com', 'juanita@hotmail.com', DATE '2
 insert into DONACION values ('pepito@hotmail.com', 'juanita@hotmail.com', DATE '2020-10-11', DATE '2020-10-12', 300, 'PENDIENTE');
 insert into DONACION values ('juanita@hotmail.com', 'maria@hotmail.com', DATE '2021-10-11', DATE '2021-10-12', 200, 'PENDIENTE');
 insert into DONACION values ('pepito@hotmail.com', 'juanita@hotmail.com', DATE '2022-10-11', DATE '2022-10-12', 300, 'APROBADA');
+insert into DONACION values ('julio@hotmail.com', 'juanita@hotmail.com', DATE '2020-10-11', DATE '2020-10-12', 400, 'APROBADA');
+insert into DONACION values ('ali@hotmail.com', 'juanita@hotmail.com', DATE '2020-10-11', DATE '2020-10-12', 400, 'APROBADA');
+insert into DONACION values ('pepito@hotmail.com', 'julio@hotmail.com', DATE '2019-10-11', DATE '2019-10-12', 200, 'PENDIENTE');
+insert into DONACION values ('pepito@hotmail.com', 'ali@hotmail.com', DATE '2019-10-11', DATE '2019-10-12', 200, 'PENDIENTE');
+insert into DONACION values ('ali@hotmail.com', 'julio@hotmail.com', DATE '2018-10-11', DATE '2018-10-12', 200, 'APROBADA');
