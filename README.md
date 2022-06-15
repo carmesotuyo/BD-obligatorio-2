@@ -83,6 +83,8 @@ ConUsuario &larr; CumplenTodo ⋈<sub>emailUsuario = email</sub> USUARIO
 Π<sub>titulo, email, nickname</sub>(ConUsuario)
 ### Justificación
 Buscamos la fecha mínima (es decir la más antigua) de publicación de contenido que cumpla con las condiciones indicadas (de categoría LoL, dominio público y visualizada al menos una vez). Al obtener esa fecha podemos volver a aplicar los mismos filtros e incluir que la fecha de emisión coincida con la fecha más antigua obtenida.
+### Casos de prueba
+
 ## Ejercicio 4
 ### Script SQL
 ```
@@ -124,6 +126,8 @@ agregar script final
 &emsp;&emsp;&emsp;&emsp;)}
 ### Justificación
 Seleccionamos los usuarios mayores de 18 años y aplicamos un cociente sobre estos, de modo que no exista una categoria de la cual no hayan compartido contenido. Dentro del cociente filtramos el contenido por su dominio.
+### Casos de prueba
+
 ## Ejercicio 6
 ### Script SQL
 ```
@@ -151,6 +155,8 @@ agregar script final
 
 ### Justificación
 
+### Casos de prueba
+
 ## Ejercicio 9
 ### Script SQL
 ```
@@ -168,3 +174,5 @@ agregar script final
 ### Resultado obtenido
 
 ### Justificación
+
+### Casos de prueba
