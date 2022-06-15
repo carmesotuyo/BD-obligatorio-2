@@ -123,7 +123,25 @@ and not exists (select 1
                                     and c.emailUsuario = u.email
                                     and c.codCategoria = cat.codCategoria) )
 --Ejercicio 6
+select emailOrigen, emailDestino, fechaAcreditacion Fecha, estadoDonacion
+from DONACION, USUARIO u, USUARIO us
+where u.email <> us.email
+and length(u.nickname) >= 5
+and length(us.nickname) >= 5
+and u.email = emailOrigen 
+and us.email in emailDestino
+and estadoDonacion = 'APROBADA'
 
+union
+
+select emailOrigen, emailDestino, fechaAcreditacion Fecha, 'Transacción programada' estadoDonacion
+from DONACION, USUARIO u, USUARIO us
+where u.email <> us.email
+and length(u.nickname) >= 5
+and length(us.nickname) >= 5
+and u.email = emailOrigen 
+and us.email in emailDestino
+and estadoDonacion = 'PENDIENTE';
 --Ejercicio 7
 
 --Ejercicio 8
