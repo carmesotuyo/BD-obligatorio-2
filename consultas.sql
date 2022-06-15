@@ -145,7 +145,20 @@ and estadoDonacion = 'PENDIENTE';
 --Ejercicio 7
 
 --Ejercicio 8
-
+select u.nombre, u.fechaNac
+from USUARIO u
+where u.email in (  select u2.email 
+                    from USUARIO u2, VISUALIZACION v2
+                    where u2.email = v2.emailUsuario
+                    having count(*) = ( select max(count(*)) 
+                                        from VISUALIZACION v
+                                        where v.fecha >= DATE '2022-04-01'
+                                        and v.fecha <= DATE '2022-04-30'
+                                        group by v.emailUsuario)
+                    group by u2.email   )
+and u.email not in (select distinct(u3.email)
+                    from USUARIO u3, DONACION d
+                    where u3.email = d.emailDestino);
 --Ejercicio 9
 
 --Ejercicio 10
