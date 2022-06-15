@@ -153,9 +153,10 @@ agregar script final
 agregar script final
 ```
 ### Resultado obtenido
+![Captura de Pantalla 2022-06-15 a la(s) 12 28 04](https://user-images.githubusercontent.com/101828758/173866180-e56bdd9f-1edb-4783-840a-637b059e2e61.png)
 
 ### Justificación
-
+Obtenemos la información pedida de los usuarios que se encuentren entre los máximos visualizadores del mes de abril, y NO se encuentren entre los que alguna vez recibieron donaciones. Para obtener quienes recibieron donaciones seleccionamos el email de los que figuren como emailDestino en alguna donación. Para obtener los que hicieron la mayor cantidad de visualizaciones en abril primero obtenemos ese máximo con las funciones max y count y agrupando los resultados por email de usuario. Luego buscamos los usuarios que hayan realizado visualizaciones en la fecha correspondiente con un join y que además su total de visualizaciones en el mes sea igual al máximo calculado previamente.
 ### Casos de prueba
 
 ## Ejercicio 9
