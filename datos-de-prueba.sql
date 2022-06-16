@@ -10,10 +10,10 @@ insert into USUARIO values ('pepito@hotmail.com', 'Pepito', 'pepito22', DATE '19
 insert into USUARIO values ('juanita@hotmail.com', 'Juanita', 'juanita22', DATE '2000-09-03');
 insert into USUARIO values ('maria@hotmail.com', 'Maria', 'maria22', DATE '1990-10-12');
 insert into USUARIO values ('pedro@hotmail.com', 'Pedro', 'pedro22', DATE '1994-11-06');
-insert into USUARIO values ('pedro@hotmail.com', 'Pedro', 'pedro22', DATE '1994-11-06');
 insert into USUARIO values ('ali@hotmail.com', 'Ali', 'ali', DATE '1999-07-14');
 insert into USUARIO values ('julio@hotmail.com', 'Julio', 'julio', DATE '1960-05-23');
 insert into USUARIO values ('rosita@hotmail.com', 'Rosita', 'rosita', DATE '1950-02-17');
+insert into USUARIO values ('fulano@hotmail.com', 'Fulano', 'fulano', DATE '2008-09-24');
 
 --Datos de CONTENIDO
 insert into CONTENIDO values ('01', 'Titulo1', DATE '2022-05-01', 'carmesotuyo@hotmail.com', 01, 'PRIVADO');
