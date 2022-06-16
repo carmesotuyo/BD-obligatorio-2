@@ -21,7 +21,7 @@ insert into CONTENIDO values ('02', 'Titulo2', DATE '2021-05-01', 'carmesotuyo@h
 insert into CONTENIDO values ('03', 'Titulo3', DATE '2022-05-01', 'pepito@hotmail.com', 04, 'PUBLICO');
 insert into CONTENIDO values ('04', 'Titulo4', DATE '2022-05-31', 'pepito@hotmail.com', 01, 'PRIVADO');
 insert into CONTENIDO values ('05', 'Titulo5', DATE '2022-05-31', 'juanita@hotmail.com', 04, 'PUBLICO');
-insert into CONTENIDO values ('06', 'Titulo6', DATE '2022-08-05', 'juanita@hotmail.com', 01, 'PRIVADO');
+insert into CONTENIDO values ('06', 'Titulo6', DATE '2022-06-05', 'juanita@hotmail.com', 01, 'PRIVADO');
 insert into CONTENIDO values ('07', 'Titulo7', DATE '2021-05-31', 'maria@hotmail.com', 04, 'PUBLICO');
 insert into CONTENIDO values ('08', 'Titulo8', DATE '2021-08-05', 'maria@hotmail.com', 04, 'PRIVADO');
 insert into CONTENIDO values ('09', 'Titulo9', DATE '2021-08-05', 'pepito@hotmail.com', 04, 'PRIVADO');
