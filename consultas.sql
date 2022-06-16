@@ -162,5 +162,19 @@ and u.email not in (select distinct(u3.email)
                     from USUARIO u3, DONACION d
                     where u3.email = d.emailDestino);
 --Ejercicio 9
-
+select cat.nombreCategoria
+from CONTENIDO con, CATEGORIA cat
+where con.codCategoria = cat.codCategoria
+and con.dominio = 'PUBLICO'
+and sysdate - con.fechaEmision <= 15
+and con.codCategoria in (select c1.codCategoria
+                        from CONTENIDO c1
+                        where c1.dominio = 'PUBLICO'
+                        and sysdate - c1.fechaEmision <= 15
+                        group by c1.codCategoria
+                        having count(*) = ( select min(count(*))
+                                            from CONTENIDO c2
+                                            where c2.dominio = 'PUBLICO'
+                                            and sysdate - c2.fechaEmision <= 15
+                                            group by c2.codCategoria));
 --Ejercicio 10
