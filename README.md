@@ -165,9 +165,10 @@ Obtenemos la información pedida de los usuarios que se encuentren entre los má
 agregar script final
 ```
 ### Resultado obtenido
+![Captura de Pantalla 2022-06-16 a la(s) 13 34 04](https://user-images.githubusercontent.com/101828758/174121070-48fb0a00-72cf-4082-a455-32237c7d0def.png)
 
 ### Justificación
-
+Primero realizamos el filtro de contenido público y fecha que vamos a aplicar en todas las subconsultas. Luego obtenemos el mínimo de contenido publicado de una categoría con la función min sobre el count agrupando por codCategoria. Utilizando la cláusula having encontramos el código de la categoría cuyo count es igual al mínimo calculado previamente. En paralelo obtenemos el máximo de visualizaciones que obtuvo un contenido, de manera similar a la consulta anterior pero utilizando la funócin max, y realizando un join con el contenido para poder aplicar los filtros. Entonces con un contenido con mayor cantidad de visualizaciones perteneciente a la categoria de menor cantidad de contenido subido finalmente obtenemos el codigo de dicha categoria obtenida en las subconsultas anteriores y proyectamos su nombre. También se realiza un join con el contenido para poder aplicar los filtros.
 ## Ejercicio 10
 ### Script SQL
 ```
