@@ -166,27 +166,27 @@ select cat.nombreCategoria
 from CONTENIDO con, CATEGORIA cat
 where con.codCategoria = cat.codCategoria
 and con.dominio = 'PUBLICO'
-and sysdate - con.fechaEmision <= 15
+and sysdate - con.fechaEmision = 15
 and con.codCategoria in (select c1.codCategoria
                         from CONTENIDO c1
                         where c1.dominio = 'PUBLICO'
-                        and sysdate - c1.fechaEmision <= 15
+                        and sysdate - c1.fechaEmision = 15
                         and c1.codContenido in (select v2.codContenido
                                                 from VISUALIZACION v2, CONTENIDO c4
                                                 where v2.codContenido = c4.codContenido
                                                 and c4.dominio = 'PUBLICO'
-                                                and sysdate - c4.fechaEmision <= 15
+                                                and sysdate - c4.fechaEmision = 15
                                                 group by v2.codContenido
                                                 having count(*) = ( select max(count(*))
                                                                     from VISUALIZACION v, CONTENIDO c3
                                                                     where v.codContenido = c3.codContenido
                                                                     and c3.dominio = 'PUBLICO'
-                                                                    and sysdate - c3.fechaEmision <= 15
+                                                                    and sysdate - c3.fechaEmision = 15
                                                                     group by v.codContenido ))
                         group by c1.codCategoria
                         having count(*) = ( select min(count(*))
                                             from CONTENIDO c2
                                             where c2.dominio = 'PUBLICO'
-                                            and sysdate - c2.fechaEmision <= 15
+                                            and sysdate - c2.fechaEmision = 15
                                             group by c2.codCategoria));
 --Ejercicio 10
