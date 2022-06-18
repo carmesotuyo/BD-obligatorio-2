@@ -190,3 +190,84 @@ and con.codCategoria in (select c1.codCategoria
                                             and sysdate - c2.fechaEmision = 15
                                             group by c2.codCategoria));
 --Ejercicio 10
+select con.dominio, u.nombre as nombreUsuario, count(*) cantEmisiones, prcEmisiones, nombreCategoria
+from CONTENIDO con 
+inner join USUARIO u 
+on con.emailUsuario = u.email 
+and con.dominio = 'PRIVADO'
+inner join (select distinct(c.emailUsuario) as emailUsuarioPrc, 
+                    round(((select count(*) cantEmisiones
+                            from CONTENIDO c2
+                            where c2.dominio = 'PRIVADO'
+                            and c2.emailUsuario = c.emailUsuario
+                            group by c2.emailUsuario) / (select count(*) totalEmisiones
+                                                        from CONTENIDO c3
+                                                        where c3.dominio = 'PRIVADO'
+                                                        group by c3.dominio) * 100), 0) || '%' as prcEmisiones
+            from CONTENIDO c
+            where round(((select count(*) cantEmisiones
+                        from CONTENIDO c4
+                        where c4.dominio = 'PRIVADO'
+                        and c4.emailUsuario = c.emailUsuario
+                        group by c4.emailUsuario) / (select count(*) totalEmisiones
+                                                    from CONTENIDO c5
+                                                    where c5.dominio = 'PRIVADO'
+                                                    group by c5.dominio) * 100), 0) is not NULL )
+                                           
+on emailUsuarioPrc = con.emailUsuario
+inner join (select cat.nombreCategoria as nombreCategoria
+            from VISUALIZACION v, CONTENIDO c, CATEGORIA cat
+            where v.codContenido = c.codContenido
+            and c.codCategoria = cat.codCategoria
+            and c.dominio = 'PRIVADO'
+            group by cat.nombreCategoria
+            having count(*) = (select max(count(*))
+                                from VISUALIZACION v, CONTENIDO c
+                                where v.codContenido = c.codContenido
+                                and c.dominio = 'PRIVADO'
+                                group by c.codCategoria))
+on nombreCategoria is not NULL
+group by con.dominio, u.nombre, prcEmisiones, nombreCategoria
+
+
+union
+
+
+select con.dominio, u.nombre as nombreUsuario, count(*) cantEmisiones, prcEmisiones, nombreCategoria
+from CONTENIDO con 
+inner join USUARIO u 
+on con.emailUsuario = u.email 
+and con.dominio = 'PUBLICO'
+inner join (select distinct(c.emailUsuario) as emailUsuarioPrc, 
+                    round(((select count(*) cantEmisiones
+                            from CONTENIDO c2
+                            where c2.dominio = 'PUBLICO'
+                            and c2.emailUsuario = c.emailUsuario
+                            group by c2.emailUsuario) / (select count(*) totalEmisiones
+                                                        from CONTENIDO c3
+                                                        where c3.dominio = 'PUBLICO'
+                                                        group by c3.dominio) * 100), 0) || '%' as prcEmisiones
+            from CONTENIDO c
+            where round(((select count(*) cantEmisiones
+                        from CONTENIDO c4
+                        where c4.dominio = 'PUBLICO'
+                        and c4.emailUsuario = c.emailUsuario
+                        group by c4.emailUsuario) / (select count(*) totalEmisiones
+                                                    from CONTENIDO c5
+                                                    where c5.dominio = 'PUBLICO'
+                                                    group by c5.dominio) * 100), 0) is not NULL )
+                                           
+on emailUsuarioPrc = con.emailUsuario
+inner join (select cat.nombreCategoria as nombreCategoria
+            from VISUALIZACION v, CONTENIDO c, CATEGORIA cat
+            where v.codContenido = c.codContenido
+            and c.codCategoria = cat.codCategoria
+            and c.dominio = 'PUBLICO'
+            group by cat.nombreCategoria
+            having count(*) = (select max(count(*))
+                                from VISUALIZACION v, CONTENIDO c
+                                where v.codContenido = c.codContenido
+                                and c.dominio = 'PUBLICO'
+                                group by c.codCategoria))
+on nombreCategoria is not NULL
+group by con.dominio, u.nombre, prcEmisiones, nombreCategoria;
