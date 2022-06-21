@@ -23,9 +23,6 @@
 agregar script final
 ```
 ### Resultado obtenido
-opcion 1
-![Captura de Pantalla 2022-06-14 a la(s) 10 30 52](https://user-images.githubusercontent.com/101828758/173589297-54e6521e-9f6a-4d94-8735-d9ec36933a3e.png)
-opcion 2
 ![Captura de Pantalla 2022-06-14 a la(s) 10 31 16](https://user-images.githubusercontent.com/101828758/173589382-d55161fb-a34c-4066-9a91-6552ba2070dc.png)
 
 ### Algebra relacional
