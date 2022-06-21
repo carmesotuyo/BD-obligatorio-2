@@ -20,7 +20,42 @@
 ## Ejercicio 1
 ### Script SQL
 ```
-agregar script final
+select distinct(u.email), u.nickname
+from USUARIO u
+where u.email in (  (select c.emailUsuario from CONTENIDO c 
+                     inner join CATEGORIA cat
+                     on c.codCategoria = cat.codCategoria
+                     and cat.nombreCategoria = 'Musica'
+                     and c.fechaEmision >= DATE '2022-05-01'
+                     and c.fechaEmision <= DATE '2022-05-31'
+
+                     union
+
+                     select c.emailUsuario from CONTENIDO c 
+                     inner join CATEGORIA cat
+                     on c.codCategoria = cat.codCategoria
+                     and cat.nombreCategoria = 'Fortnite'
+                     and c.fechaEmision >= DATE '2022-05-01'
+                     and c.fechaEmision <= DATE '2022-05-31')
+
+                     minus
+
+                     (select c.emailUsuario from CONTENIDO c 
+                     inner join CATEGORIA cat
+                     on c.codCategoria = cat.codCategoria
+                     and cat.nombreCategoria = 'Musica'
+                     and c.fechaEmision >= DATE '2022-05-01'
+                     and c.fechaEmision <= DATE '2022-05-31'
+
+                     intersect
+
+                     select c.emailUsuario from CONTENIDO c 
+                     inner join CATEGORIA cat
+                     on c.codCategoria = cat.codCategoria
+                     and cat.nombreCategoria = 'Fortnite'
+                     and c.fechaEmision >= DATE '2022-05-01'
+                     and c.fechaEmision <= DATE '2022-05-31') 
+                  );
 ```
 ### Resultado obtenido
 ![Captura de Pantalla 2022-06-21 a la(s) 18 18 06](https://user-images.githubusercontent.com/101828758/174898975-321fd0c7-4e70-4e97-97b1-1e2f871a1d0f.png)
@@ -45,7 +80,15 @@ Los usuarios que compartieron contenido de una u otra categoría, pero no ambas,
 ## Ejercicio 2
 ### Script SQL
 ```
-agregar script final
+select cont.titulo 
+from CONTENIDO cont, CATEGORIA cat, VISUALIZACION v
+where cat.nombreCategoria = 'Musica'
+and cont.codCategoria = cat.codCategoria
+and cont.dominio = 'PRIVADO'
+and cont.codContenido = v.codContenido
+and v.fecha >= DATE '2022-05-01'
+and v.fecha <= DATE '2022-05-31'
+and cont.emailUsuario <> v.emailUsuario;
 ```
 ### Resultado obtenido
 ![Captura de Pantalla 2022-06-21 a la(s) 18 18 59](https://user-images.githubusercontent.com/101828758/174899059-68a33ae1-3387-4e81-878c-9a09a9a7f0f1.png)
@@ -62,7 +105,21 @@ Obtenemos el código de la categoría Música y con este los contenidos que corr
 ## Ejercicio 3
 ### Script SQL
 ```
-agregar script final
+select cont.titulo, u.email, u.nickname
+from CATEGORIA cat, CONTENIDO cont, USUARIO U
+where cat.nombreCategoria = 'LoL'
+and cat.codCategoria = cont.codCategoria
+and cont.emailUsuario = u.email
+and cont.dominio = 'PUBLICO'
+and cont.codContenido in (  select distinct (codContenido) 
+                            from VISUALIZACION              )
+and cont.fechaEmision in (  select min(fechaEmision)
+                            from CONTENIDO con, CATEGORIA ca
+                            where ca.nombreCategoria = 'LoL'
+                            and ca.codCategoria = con.codCategoria
+                            and con.dominio = 'PUBLICO'
+                            and con.codContenido in (   select distinct (codContenido) 
+                                                        from VISUALIZACION)             );
 ```
 ### Resultado obtenido
 ![Captura de Pantalla 2022-06-14 a la(s) 10 45 08](https://user-images.githubusercontent.com/101828758/173592461-624c26fe-681a-45a3-8b67-dcd5acfa693b.png)
@@ -85,7 +142,20 @@ Buscamos la fecha mínima (es decir la más antigua) de publicación de contenid
 ## Ejercicio 4
 ### Script SQL
 ```
-agregar script final
+select u.nickname 
+from USUARIO u
+where u.email in (  select d.emailDestino
+                    from DONACION d
+                    where d.estadoDonacion = 'PENDIENTE'
+                    and d.fechaCreacion > DATE '2021-10-10'
+                    and d.emailDestino in ( select distinct(d.emailOrigen)
+                                            from DONACION d, DONACION do
+                                            where d.emailOrigen = do.emailOrigen
+                                            and d.emailDestino < do.emailDestino
+                                            and d.fechaCreacion > DATE '2021-10-10'
+                                            and do.fechaCreacion > DATE '2021-10-10' )
+                    group by d.emailDestino
+                    having count(*) > 1 );
 ```
 ### Resultado obtenido
 ![Captura de Pantalla 2022-06-14 a la(s) 12 48 00](https://user-images.githubusercontent.com/101828758/173620585-7df8ae3c-c89d-4473-a2c5-825cd510741b.png)
@@ -109,7 +179,16 @@ Obtenemos los usuarios que realizaron donaciones a más de un usuario haciendo u
 ## Ejercicio 5
 ### Script SQL
 ```
-agregar script final
+select u.email, u.nickname
+from USUARIO u
+where (sysdate - u.fechaNac)/365 > 18
+and not exists (select 1
+                from CATEGORIA cat
+                where not exists ( select 1
+                                    from CONTENIDO c
+                                    where c.dominio = 'PUBLICO'
+                                    and c.emailUsuario = u.email
+                                    and c.codCategoria = cat.codCategoria) );
 ```
 ### Resultado obtenido
 ![Captura de Pantalla 2022-06-21 a la(s) 18 21 37](https://user-images.githubusercontent.com/101828758/174899419-982eaa7e-f2dd-4357-bf5e-366f21319ff8.png)
@@ -128,7 +207,25 @@ Seleccionamos los usuarios mayores de 18 años y aplicamos un cociente sobre est
 ## Ejercicio 6
 ### Script SQL
 ```
-agregar script final
+select emailOrigen, emailDestino, fechaAcreditacion Fecha, estadoDonacion
+from DONACION, USUARIO u, USUARIO us
+where u.email <> us.email
+and length(u.nickname) >= 5
+and length(us.nickname) >= 5
+and u.email = emailOrigen 
+and us.email in emailDestino
+and estadoDonacion = 'APROBADA'
+
+union
+
+select emailOrigen, emailDestino, fechaAcreditacion Fecha, 'Transacción programada' estadoDonacion
+from DONACION, USUARIO u, USUARIO us
+where u.email <> us.email
+and length(u.nickname) >= 5
+and length(us.nickname) >= 5
+and u.email = emailOrigen 
+and us.email in emailDestino
+and estadoDonacion = 'PENDIENTE';
 ```
 ### Resultado obtenido
 ![Captura de Pantalla 2022-06-15 a la(s) 10 17 29](https://user-images.githubusercontent.com/101828758/173836382-e367ac8d-868f-4113-a761-d980dd9851bd.png)
@@ -138,7 +235,20 @@ Realizamos la union de dos consultas, por un lado aquellas cuyo estado es aproba
 ## Ejercicio 7
 ### Script SQL
 ```
-agregar script final
+select u.email, count(distinct c1.codContenido) contPrivado, count(distinct c2.codContenido) contPublico
+from USUARIO u
+left join CONTENIDO c1 
+on c1.emailUsuario = u.email 
+and c1.dominio = 'PRIVADO'
+and c1.fechaEmision >= DATE '2022-03-01'
+and c1.fechaEmision <= DATE '2022-03-15'
+left join CONTENIDO c2
+on c2.emailUsuario = u.email 
+and c2.dominio = 'PUBLICO'
+and c2.fechaEmision >= DATE '2022-03-01'
+and c2.fechaEmision <= DATE '2022-03-15'
+having count(distinct c1.codContenido)>0 or count(distinct c2.codContenido)>0
+group by u.email;
 ```
 ### Resultado obtenido
 ![Captura de Pantalla 2022-06-21 a la(s) 18 04 16](https://user-images.githubusercontent.com/101828758/174897113-b06652ad-ea4d-4126-a1af-9f00843f8a9a.png)
@@ -148,7 +258,22 @@ Realizamos dos left join con la tabla Contenido, de modo de contabilizar aquello
 ## Ejercicio 8
 ### Script SQL
 ```
-agregar script final
+select u.nombre, u.fechaNac
+from USUARIO u
+where u.email in (  select u2.email 
+                    from USUARIO u2, VISUALIZACION v2
+                    where u2.email = v2.emailUsuario
+                    and v2.fecha >= DATE '2022-04-01'
+                    and v2.fecha <= DATE '2022-04-30'
+                    having count(*) = ( select max(count(*)) 
+                                        from VISUALIZACION v
+                                        where v.fecha >= DATE '2022-04-01'
+                                        and v.fecha <= DATE '2022-04-30'
+                                        group by v.emailUsuario)
+                    group by u2.email   )
+and u.email not in (select distinct(u3.email)
+                    from USUARIO u3, DONACION d
+                    where u3.email = d.emailDestino);
 ```
 ### Resultado obtenido
 ![Captura de Pantalla 2022-06-15 a la(s) 12 28 04](https://user-images.githubusercontent.com/101828758/173866180-e56bdd9f-1edb-4783-840a-637b059e2e61.png)
@@ -160,7 +285,33 @@ Obtenemos la información pedida de los usuarios que se encuentren entre los má
 ## Ejercicio 9
 ### Script SQL
 ```
-agregar script final
+select cat.nombreCategoria
+from CONTENIDO con, CATEGORIA cat
+where con.codCategoria = cat.codCategoria
+and con.dominio = 'PUBLICO'
+and sysdate - con.fechaEmision = 15
+and con.codCategoria in (select c1.codCategoria
+                        from CONTENIDO c1
+                        where c1.dominio = 'PUBLICO'
+                        and sysdate - c1.fechaEmision = 15
+                        and c1.codContenido in (select v2.codContenido
+                                                from VISUALIZACION v2, CONTENIDO c4
+                                                where v2.codContenido = c4.codContenido
+                                                and c4.dominio = 'PUBLICO'
+                                                and sysdate - c4.fechaEmision = 15
+                                                group by v2.codContenido
+                                                having count(*) = ( select max(count(*))
+                                                                    from VISUALIZACION v, CONTENIDO c3
+                                                                    where v.codContenido = c3.codContenido
+                                                                    and c3.dominio = 'PUBLICO'
+                                                                    and sysdate - c3.fechaEmision = 15
+                                                                    group by v.codContenido ))
+                        group by c1.codCategoria
+                        having count(*) = ( select min(count(*))
+                                            from CONTENIDO c2
+                                            where c2.dominio = 'PUBLICO'
+                                            and sysdate - c2.fechaEmision = 15
+                                            group by c2.codCategoria));
 ```
 ### Resultado obtenido
 ![Captura de Pantalla 2022-06-16 a la(s) 13 34 04](https://user-images.githubusercontent.com/101828758/174121070-48fb0a00-72cf-4082-a455-32237c7d0def.png)
@@ -170,7 +321,87 @@ Primero realizamos el filtro de contenido público y fecha que vamos a aplicar e
 ## Ejercicio 10
 ### Script SQL
 ```
-agregar script final
+select con.dominio, u.nombre as nombreUsuario, count(*) cantEmisiones, prcEmisiones, nombreCategoria
+from CONTENIDO con 
+inner join USUARIO u 
+on con.emailUsuario = u.email 
+and con.dominio = 'PRIVADO'
+inner join (select distinct(c.emailUsuario) as emailUsuarioPrc, 
+                    round(((select count(*) cantEmisiones
+                            from CONTENIDO c2
+                            where c2.dominio = 'PRIVADO'
+                            and c2.emailUsuario = c.emailUsuario
+                            group by c2.emailUsuario) / (select count(*) totalEmisiones
+                                                        from CONTENIDO c3
+                                                        where c3.dominio = 'PRIVADO'
+                                                        group by c3.dominio) * 100), 0) || '%' as prcEmisiones
+            from CONTENIDO c
+            where round(((select count(*) cantEmisiones
+                        from CONTENIDO c4
+                        where c4.dominio = 'PRIVADO'
+                        and c4.emailUsuario = c.emailUsuario
+                        group by c4.emailUsuario) / (select count(*) totalEmisiones
+                                                    from CONTENIDO c5
+                                                    where c5.dominio = 'PRIVADO'
+                                                    group by c5.dominio) * 100), 0) is not NULL )
+                                           
+on emailUsuarioPrc = con.emailUsuario
+inner join (select cat.nombreCategoria as nombreCategoria
+            from VISUALIZACION v, CONTENIDO c, CATEGORIA cat
+            where v.codContenido = c.codContenido
+            and c.codCategoria = cat.codCategoria
+            and c.dominio = 'PRIVADO'
+            group by cat.nombreCategoria
+            having count(*) = (select max(count(*))
+                                from VISUALIZACION v, CONTENIDO c
+                                where v.codContenido = c.codContenido
+                                and c.dominio = 'PRIVADO'
+                                group by c.codCategoria))
+on nombreCategoria is not NULL
+group by con.dominio, u.nombre, prcEmisiones, nombreCategoria
+
+
+union
+
+
+select con.dominio, u.nombre as nombreUsuario, count(*) cantEmisiones, prcEmisiones, nombreCategoria
+from CONTENIDO con 
+inner join USUARIO u 
+on con.emailUsuario = u.email 
+and con.dominio = 'PUBLICO'
+inner join (select distinct(c.emailUsuario) as emailUsuarioPrc, 
+                    round(((select count(*) cantEmisiones
+                            from CONTENIDO c2
+                            where c2.dominio = 'PUBLICO'
+                            and c2.emailUsuario = c.emailUsuario
+                            group by c2.emailUsuario) / (select count(*) totalEmisiones
+                                                        from CONTENIDO c3
+                                                        where c3.dominio = 'PUBLICO'
+                                                        group by c3.dominio) * 100), 0) || '%' as prcEmisiones
+            from CONTENIDO c
+            where round(((select count(*) cantEmisiones
+                        from CONTENIDO c4
+                        where c4.dominio = 'PUBLICO'
+                        and c4.emailUsuario = c.emailUsuario
+                        group by c4.emailUsuario) / (select count(*) totalEmisiones
+                                                    from CONTENIDO c5
+                                                    where c5.dominio = 'PUBLICO'
+                                                    group by c5.dominio) * 100), 0) is not NULL )
+                                           
+on emailUsuarioPrc = con.emailUsuario
+inner join (select cat.nombreCategoria as nombreCategoria
+            from VISUALIZACION v, CONTENIDO c, CATEGORIA cat
+            where v.codContenido = c.codContenido
+            and c.codCategoria = cat.codCategoria
+            and c.dominio = 'PUBLICO'
+            group by cat.nombreCategoria
+            having count(*) = (select max(count(*))
+                                from VISUALIZACION v, CONTENIDO c
+                                where v.codContenido = c.codContenido
+                                and c.dominio = 'PUBLICO'
+                                group by c.codCategoria))
+on nombreCategoria is not NULL
+group by con.dominio, u.nombre, prcEmisiones, nombreCategoria;
 ```
 ### Resultado obtenido
 ![Captura de Pantalla 2022-06-21 a la(s) 18 27 07](https://user-images.githubusercontent.com/101828758/174900181-0cda722c-0d66-4974-b112-91b26c7707bb.png)
