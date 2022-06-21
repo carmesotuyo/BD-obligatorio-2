@@ -1,72 +1,40 @@
 --Ejercicio 1
 select distinct(u.email), u.nickname
-from USUARIO u, CONTENIDO cont
-where u.email = cont.emailUsuario
-and cont.fechaEmision >= DATE '2022-05-01'
-and cont.fechaEmision <= DATE '2022-05-31'
-and cont.emailUsuario in (  (select c.emailUsuario from CONTENIDO c 
-                            inner join CATEGORIA cat
-                            on c.codCategoria = cat.codCategoria
-                            and cat.nombreCategoria = 'Musica'
-
-                            union
-
-                            select c.emailUsuario from CONTENIDO c 
-                            inner join CATEGORIA cat
-                            on c.codCategoria = cat.codCategoria
-                            and cat.nombreCategoria = 'Fortnite')
-
-                            minus
-
-                            (select c.emailUsuario from CONTENIDO c 
-                            inner join CATEGORIA cat
-                            on c.codCategoria = cat.codCategoria
-                            and cat.nombreCategoria = 'Musica'
-
-                            intersect
-
-                            select c.emailUsuario from CONTENIDO c 
-                            inner join CATEGORIA cat
-                            on c.codCategoria = cat.codCategoria
-                            and cat.nombreCategoria = 'Fortnite') 
-                        );
---opcion 2:
-select distinct(u.email), u.nickname
 from USUARIO u
 where u.email in (  (select c.emailUsuario from CONTENIDO c 
-                            inner join CATEGORIA cat
-                            on c.codCategoria = cat.codCategoria
-                            and cat.nombreCategoria = 'Musica'
-                            and c.fechaEmision >= DATE '2022-05-01'
-                            and c.fechaEmision <= DATE '2022-05-31'
+                     inner join CATEGORIA cat
+                     on c.codCategoria = cat.codCategoria
+                     and cat.nombreCategoria = 'Musica'
+                     and c.fechaEmision >= DATE '2022-05-01'
+                     and c.fechaEmision <= DATE '2022-05-31'
 
-                            union
+                     union
 
-                            select c.emailUsuario from CONTENIDO c 
-                            inner join CATEGORIA cat
-                            on c.codCategoria = cat.codCategoria
-                            and cat.nombreCategoria = 'Fortnite'
-                            and c.fechaEmision >= DATE '2022-05-01'
-                            and c.fechaEmision <= DATE '2022-05-31')
+                     select c.emailUsuario from CONTENIDO c 
+                     inner join CATEGORIA cat
+                     on c.codCategoria = cat.codCategoria
+                     and cat.nombreCategoria = 'Fortnite'
+                     and c.fechaEmision >= DATE '2022-05-01'
+                     and c.fechaEmision <= DATE '2022-05-31')
 
-                            minus
+                     minus
 
-                            (select c.emailUsuario from CONTENIDO c 
-                            inner join CATEGORIA cat
-                            on c.codCategoria = cat.codCategoria
-                            and cat.nombreCategoria = 'Musica'
-                            and c.fechaEmision >= DATE '2022-05-01'
-                            and c.fechaEmision <= DATE '2022-05-31'
+                     (select c.emailUsuario from CONTENIDO c 
+                     inner join CATEGORIA cat
+                     on c.codCategoria = cat.codCategoria
+                     and cat.nombreCategoria = 'Musica'
+                     and c.fechaEmision >= DATE '2022-05-01'
+                     and c.fechaEmision <= DATE '2022-05-31'
 
-                            intersect
+                     intersect
 
-                            select c.emailUsuario from CONTENIDO c 
-                            inner join CATEGORIA cat
-                            on c.codCategoria = cat.codCategoria
-                            and cat.nombreCategoria = 'Fortnite'
-                            and c.fechaEmision >= DATE '2022-05-01'
-                            and c.fechaEmision <= DATE '2022-05-31') 
-                        );
+                     select c.emailUsuario from CONTENIDO c 
+                     inner join CATEGORIA cat
+                     on c.codCategoria = cat.codCategoria
+                     and cat.nombreCategoria = 'Fortnite'
+                     and c.fechaEmision >= DATE '2022-05-01'
+                     and c.fechaEmision <= DATE '2022-05-31') 
+                  );
 
 --Ejercicio 2
 select cont.titulo 
