@@ -79,6 +79,7 @@ where u.email in (  select d.emailDestino
                                             and do.fechaCreacion > DATE '2021-10-10' )
                     group by d.emailDestino
                     having count(*) > 1 );
+		    
 --Ejercicio 5
 select u.email, u.nickname
 from USUARIO u
@@ -89,7 +90,8 @@ and not exists (select 1
                                     from CONTENIDO c
                                     where c.dominio = 'PUBLICO'
                                     and c.emailUsuario = u.email
-                                    and c.codCategoria = cat.codCategoria) )
+                                    and c.codCategoria = cat.codCategoria) );
+				    
 --Ejercicio 6
 select emailOrigen, emailDestino, fechaAcreditacion Fecha, estadoDonacion
 from DONACION, USUARIO u, USUARIO us
@@ -110,6 +112,7 @@ and length(us.nickname) >= 5
 and u.email = emailOrigen 
 and us.email in emailDestino
 and estadoDonacion = 'PENDIENTE';
+
 --Ejercicio 7
 select u.email, count(distinct c1.codContenido) contPrivado, count(distinct c2.codContenido) contPublico
 from USUARIO u
@@ -125,6 +128,7 @@ and c2.fechaEmision >= DATE '2022-03-01'
 and c2.fechaEmision <= DATE '2022-03-15'
 having count(distinct c1.codContenido)>0 or count(distinct c2.codContenido)>0
 group by u.email;
+
 --Ejercicio 8
 select u.nombre, u.fechaNac
 from USUARIO u
@@ -142,6 +146,7 @@ where u.email in (  select u2.email
 and u.email not in (select distinct(u3.email)
                     from USUARIO u3, DONACION d
                     where u3.email = d.emailDestino);
+		    
 --Ejercicio 9
 select cat.nombreCategoria
 from CONTENIDO con, CATEGORIA cat
@@ -170,6 +175,7 @@ and con.codCategoria in (select c1.codCategoria
                                             where c2.dominio = 'PUBLICO'
                                             and sysdate - c2.fechaEmision = 15
                                             group by c2.codCategoria));
+					    
 --Ejercicio 10
 select con.dominio, u.nombre as nombreUsuario, count(*) cantEmisiones, prcEmisiones, nombreCategoria
 from CONTENIDO con 
