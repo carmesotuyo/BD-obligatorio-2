@@ -23,7 +23,7 @@
 agregar script final
 ```
 ### Resultado obtenido
-![Captura de Pantalla 2022-06-14 a la(s) 10 31 16](https://user-images.githubusercontent.com/101828758/173589382-d55161fb-a34c-4066-9a91-6552ba2070dc.png)
+![Captura de Pantalla 2022-06-21 a la(s) 18 18 06](https://user-images.githubusercontent.com/101828758/174898975-321fd0c7-4e70-4e97-97b1-1e2f871a1d0f.png)
 
 ### Algebra relacional
 Musica &larr; Π<sub>codCategoria</sub>(σ<sub>nombreCategoria='Musica'</sub>(CATEGORIA))  
