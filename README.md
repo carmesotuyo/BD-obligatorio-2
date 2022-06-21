@@ -48,7 +48,7 @@ Los usuarios que compartieron contenido de una u otra categoría, pero no ambas,
 agregar script final
 ```
 ### Resultado obtenido
-![Captura de Pantalla 2022-06-14 a la(s) 10 31 53](https://user-images.githubusercontent.com/101828758/173589508-a56dbcd6-e4c5-4824-9e02-68fd143bd0ce.png)
+![Captura de Pantalla 2022-06-21 a la(s) 18 18 59](https://user-images.githubusercontent.com/101828758/174899059-68a33ae1-3387-4e81-878c-9a09a9a7f0f1.png)
 
 ### Algebra relacional
 Musica &larr; Π<sub>codCategoria</sub>(σ<sub>nombreCategoria = ‘Musica’</sub>(CATEGORIA))  
