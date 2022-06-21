@@ -141,9 +141,10 @@ Realizamos la union de dos consultas, por un lado aquellas cuyo estado es aproba
 agregar script final
 ```
 ### Resultado obtenido
+![Captura de Pantalla 2022-06-21 a la(s) 18 04 16](https://user-images.githubusercontent.com/101828758/174897113-b06652ad-ea4d-4126-a1af-9f00843f8a9a.png)
 
 ### Justificación
-
+Realizamos dos left join con la tabla Contenido, de modo de contabilizar aquellos contenidos de dominio público y los de dominio privado. También incluimos la restricción de fechas y agrupamos por email, filtrando con la cláusula having aquellos usuarios que hayan compartido al menos 1 contenido, ya sea público o privado, en las fechas requeridas.
 ## Ejercicio 8
 ### Script SQL
 ```
