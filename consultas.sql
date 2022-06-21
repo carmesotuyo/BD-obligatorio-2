@@ -111,7 +111,20 @@ and u.email = emailOrigen
 and us.email in emailDestino
 and estadoDonacion = 'PENDIENTE';
 --Ejercicio 7
-
+select u.email, count(distinct c1.codContenido) contPrivado, count(distinct c2.codContenido) contPublico
+from USUARIO u
+left join CONTENIDO c1 
+on c1.emailUsuario = u.email 
+and c1.dominio = 'PRIVADO'
+and c1.fechaEmision >= DATE '2022-03-01'
+and c1.fechaEmision <= DATE '2022-03-15'
+left join CONTENIDO c2
+on c2.emailUsuario = u.email 
+and c2.dominio = 'PUBLICO'
+and c2.fechaEmision >= DATE '2022-03-01'
+and c2.fechaEmision <= DATE '2022-03-15'
+having count(distinct c1.codContenido)>0 or count(distinct c2.codContenido)>0
+group by u.email;
 --Ejercicio 8
 select u.nombre, u.fechaNac
 from USUARIO u
