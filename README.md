@@ -112,7 +112,7 @@ Obtenemos los usuarios que realizaron donaciones a más de un usuario haciendo u
 agregar script final
 ```
 ### Resultado obtenido
-![Captura de Pantalla 2022-06-14 a la(s) 17 04 13](https://user-images.githubusercontent.com/101828758/173678690-91fcb678-ef2a-45b7-9bac-8894c50f90ff.png)
+![Captura de Pantalla 2022-06-21 a la(s) 18 21 37](https://user-images.githubusercontent.com/101828758/174899419-982eaa7e-f2dd-4357-bf5e-366f21319ff8.png)
 
 ### Cálculo relacional de tuplas
 {u.email, u.nickname | USUARIO(u) AND (sysdate - u.fechaNac)/365 > 18   
