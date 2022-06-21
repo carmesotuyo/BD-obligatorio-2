@@ -318,6 +318,7 @@ and con.codCategoria in (select c1.codCategoria
 
 ### Justificación
 Primero realizamos el filtro de contenido público y fecha que vamos a aplicar en todas las subconsultas. Luego obtenemos el mínimo de contenido publicado de una categoría con la función min sobre el count agrupando por codCategoria. Utilizando la cláusula having encontramos el código de la categoría cuyo count es igual al mínimo calculado previamente. En paralelo obtenemos el máximo de visualizaciones que obtuvo un contenido, de manera similar a la consulta anterior pero utilizando la funócin max, y realizando un join con el contenido para poder aplicar los filtros. Entonces con un contenido con mayor cantidad de visualizaciones perteneciente a la categoria de menor cantidad de contenido subido finalmente obtenemos el codigo de dicha categoria obtenida en las subconsultas anteriores y proyectamos su nombre. También se realiza un join con el contenido para poder aplicar los filtros.
+El resultado obtenido es del 16 de junio, si se prueba en otra fecha con los mismos datos de prueba el resultado será diferente.
 ## Ejercicio 10
 ### Script SQL
 ```
