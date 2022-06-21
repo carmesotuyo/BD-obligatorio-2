@@ -173,7 +173,7 @@ Primero realizamos el filtro de contenido público y fecha que vamos a aplicar e
 agregar script final
 ```
 ### Resultado obtenido
-![Captura de Pantalla 2022-06-18 a la(s) 17 57 32](https://user-images.githubusercontent.com/101828758/174456869-7aedd549-e6f1-476c-a476-fa8907c7ed12.png)
+![Captura de Pantalla 2022-06-21 a la(s) 18 27 07](https://user-images.githubusercontent.com/101828758/174900181-0cda722c-0d66-4974-b112-91b26c7707bb.png)
 
 ### Justificación
 Obtenemos las distintas consultas por separado para contenido Privado y Público, y luego las unimos a través de la función Union. Dentro de cada dominio realizamos distintas consultas para obtener la información necesaria unidas entre sí con Inner Join múltiples. Obtenemos el total de emisiones de dicho dominio, y lo utilizamos para calcular el porcentaje de emisines del usuario. Este porcentaje lo redondeamos con la función round y lo concatenamos con el símbolo de porcentaje utilizando || '%'. A su vez obtenemos el nombre de la categoría más vista con la función max, y realizando un join entre Visualización, Contenido y Categoria para obtener su nombre. A todas estas subconsultas les asignamos el nombre de columna correspondiente y agrupamos los resultados según ellas.
