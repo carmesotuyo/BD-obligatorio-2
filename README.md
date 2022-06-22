@@ -138,7 +138,14 @@ ConUsuario &larr; CumplenTodo ⋈<sub>emailUsuario = email</sub> USUARIO
 ### Justificación
 Buscamos la fecha mínima (es decir la más antigua) de publicación de contenido que cumpla con las condiciones indicadas (de categoría LoL, dominio público y visualizada al menos una vez). Al obtener esa fecha podemos volver a aplicar los mismos filtros e incluir que la fecha de emisión coincida con la fecha más antigua obtenida.
 ### Casos de prueba
-
+Se insertan los datos de prueba adjuntados en script.
+Los datos de prueba incluyen:
+- Contenido de dominio público de la categoría LoL visualizado al menos una vez
+- Contenido de dominio público de la categoría LoL no visualizado
+- Contenido de dominio privado de la categoría LoL visualizado al menos una vez
+- Contenido de dominio privado de la categoría LoL no visualizado
+El resultado esperado debería incluir únicamente los del primer ítem.
+El resultado obtenido coincide con el resultado esperado.
 ## Ejercicio 4
 ### Script SQL
 ```
@@ -203,7 +210,14 @@ and not exists (select 1
 ### Justificación
 Seleccionamos los usuarios mayores de 18 años y aplicamos un cociente sobre estos, de modo que no exista una categoria de la cual no hayan compartido contenido. Dentro del cociente filtramos el contenido por su dominio.
 ### Casos de prueba
-
+Se insertan los datos de prueba adjuntados en script.
+Los datos de prueba incluyen:
+- Usuarios mayores de 18 años que emitieron contenido de dominio público en todas las categorías
+- Usuarios menores de 18 años que emitieron contenido de dominio público en todas las categorías
+- Usuarios mayores de 18 años que emitieron contenido de dominio público en algunas categorías (no todas)
+- Usuarios mayores de 18 años que emitieron contenido de dominio privado en todas las categorías
+El resultado esperado debería incluir únicamente los del primer ítem.
+El resultado obtenido coincide con el resultado esperado.
 ## Ejercicio 6
 ### Script SQL
 ```
@@ -281,7 +295,14 @@ and u.email not in (select distinct(u3.email)
 ### Justificación
 Obtenemos la información pedida de los usuarios que se encuentren entre los máximos visualizadores del mes de abril, y NO se encuentren entre los que alguna vez recibieron donaciones. Para obtener quienes recibieron donaciones seleccionamos el email de los que figuren como emailDestino en alguna donación. Para obtener los que hicieron la mayor cantidad de visualizaciones en abril primero obtenemos ese máximo con las funciones max y count y agrupando los resultados por email de usuario. Luego buscamos los usuarios que hayan realizado visualizaciones en la fecha correspondiente con un join y que además su total de visualizaciones en el mes sea igual al máximo calculado previamente.
 ### Casos de prueba
-
+Se insertan los datos de prueba adjuntados en script.
+Los datos de prueba incluyen:
+- Usuarios que nunca recibieron donaciones y visualizaron la mayor cantidad de contenido en abril de 2022
+- Usuarios que recibieron alguna donación y visualizaron la mayor cantidad de contenido en abril de 2022
+- Usuarios que nunca recibieron donaciones y no visualizaron la mayor cantidad de contenido en abril de 2022
+- Se toman en cuenta fechas borde validas como el 1ro y el 30 de abril, e invalidas como el 31 de marzo y el 1ro de mayo.
+El resultado esperado debería incluir únicamente los del primer ítem.
+El resultado obtenido coincide con el resultado esperado.
 ## Ejercicio 9
 ### Script SQL
 ```
@@ -410,3 +431,9 @@ group by con.dominio, u.nombre, prcEmisiones, nombreCategoria;
 ### Justificación
 Obtenemos las distintas consultas por separado para contenido Privado y Público, y luego las unimos a través de la función Union. Dentro de cada dominio realizamos distintas consultas para obtener la información necesaria unidas entre sí con Inner Join múltiples. Obtenemos el total de emisiones de dicho dominio, y lo utilizamos para calcular el porcentaje de emisines del usuario. Este porcentaje lo redondeamos con la función round y lo concatenamos con el símbolo de porcentaje utilizando || '%'. A su vez obtenemos el nombre de la categoría más vista con la función max, y realizando un join entre Visualización, Contenido y Categoria para obtener su nombre. A todas estas subconsultas les asignamos el nombre de columna correspondiente y agrupamos los resultados según ellas.
 ### Casos de prueba
+Se insertan los datos de prueba adjuntados en script.
+Los datos de prueba incluyen:
+- 
+- Se toman en cuenta fechas borde validas como el 1ro y el 30 de abril, e invalidas como el 31 de marzo y el 1ro de mayo.
+El resultado esperado debería incluir únicamente los del primer ítem.
+El resultado obtenido coincide con el resultado esperado.
