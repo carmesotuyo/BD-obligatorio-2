@@ -433,7 +433,9 @@ Obtenemos las distintas consultas por separado para contenido Privado y Público
 ### Casos de prueba
 Se insertan los datos de prueba adjuntados en script.
 Los datos de prueba incluyen:
-- 
-- Se toman en cuenta fechas borde validas como el 1ro y el 30 de abril, e invalidas como el 31 de marzo y el 1ro de mayo.
-El resultado esperado debería incluir únicamente los del primer ítem.
+- Usuarios que emitieron contenido de dominio público únicamente
+- Usuarios que emitieron contenido de dominio privado únicamente
+- Usuarios que emitieron contenido tanto de dominio público como privado
+- Usuarios que no emitieron contenido (no deben figurar en el resultado)
+El resultado esperado debería incluir todos los ítems a excepción del último.
 El resultado obtenido coincide con el resultado esperado.
