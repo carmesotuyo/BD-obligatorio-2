@@ -204,10 +204,10 @@ and not exists (select 1
 
 ### Cálculo relacional de tuplas
 {u.email, u.nickname | USUARIO(u) AND (sysdate - u.fechaNac)/365 > 18   
-&emsp;&emsp;&emsp;&emsp;AND (∀ cat)(CATEGORIA(cat)&rarr;(∃ c)(CONTENIDO(c)  
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;AND c.dominio = 'PUBLICO'  
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;AND c.emailUsuario = u.email  
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;AND c.codCategoria = cat.codCategoria)  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;AND (∀ cat)(CATEGORIA(cat)&rarr;(∃ c)(CONTENIDO(c)  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;AND c.dominio = 'PUBLICO'  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;AND c.emailUsuario = u.email  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;AND c.codCategoria = cat.codCategoria)  
 &emsp;&emsp;&emsp;&emsp;)}
 ### Justificación
 Seleccionamos los usuarios mayores de 18 años y aplicamos un cociente sobre estos, de modo que no exista una categoria de la cual no hayan compartido contenido. Dentro del cociente filtramos el contenido por su dominio.
@@ -268,7 +268,7 @@ having count(distinct c1.codContenido)>0 or count(distinct c2.codContenido)>0
 group by u.email;
 ```
 ### Resultado obtenido
-![Captura de Pantalla 2022-06-21 a la(s) 18 04 16](https://user-images.githubusercontent.com/101828758/174897113-b06652ad-ea4d-4126-a1af-9f00843f8a9a.png)
+![Captura de Pantalla 2022-06-21 a la(s) 22 20 05](https://user-images.githubusercontent.com/101828758/174923091-4c8f409b-bdad-4da3-a9d7-3fe1792c7ce2.png)
 
 ### Justificación
 Realizamos dos left join con la tabla Contenido, de modo de contabilizar aquellos contenidos de dominio público y los de dominio privado. También incluimos la restricción de fechas y agrupamos por email, filtrando con la cláusula having aquellos usuarios que hayan compartido al menos 1 contenido, ya sea público o privado, en las fechas requeridas.
