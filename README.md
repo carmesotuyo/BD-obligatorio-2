@@ -8,15 +8,6 @@
 | Licenciatura en Sistemas |
 | Universidad ORT Uruguay |
 
-# REFERENCIAS PARA NOSOTROS
-| simbolo en markdown | significado |
-|---|---|
-| & larr ; (todo junto) | flechita <- |
-| sub entre &lt;&gt; | subindice |
-| dos espacios despues de la linea | salto de linea en los de algebra relacional |
-| & lt ; y & gt ; (todo junto) | simbolos de &lt; y &gt; |
-| & emsp ; (todo junto) | 4 espacios indentados |
-
 ## Ejercicio 1
 ### Script SQL
 ```
