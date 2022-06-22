@@ -124,6 +124,8 @@ ConVisualizaciones &larr; VISUALIZACIONES ⋈<sub>$1==$4 AND $2&lt;&gt;$6 AND $3
 Obtenemos el código de la categoría Música y con este los contenidos que corresponden a dicha categoría. De esos filtramos los que son de dominio Privado. Finalmente realizamos un join con la tabla Visualizaciones con las condiciones necesarias de fecha e email. De todo eso proyectamos únicamente el título.  
 &nbsp;  
 &nbsp;  
+&nbsp;  
+&nbsp;  
 ## Ejercicio 3
 ### Script SQL
 ```
