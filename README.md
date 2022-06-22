@@ -13,17 +13,15 @@
 |--- |--- |
 |Ejercicio 1 | 2|
 |Ejercicio 2 | 3|
-|Ejercicio 3 | 3|
+|Ejercicio 3 | 4|
 |Ejercicio 4 | 5|
-|Ejercicio 5 | 5|
+|Ejercicio 5 | 6|
 |Ejercicio 6 | 7|
 |Ejercicio 7 | 8|
-|Ejercicio 8 | 9|
+|Ejercicio 8 | 8|
 |Ejercicio 9 | 9|
 |Ejercicio 10 | 10|
 
-&nbsp;  
-&nbsp;  
 &nbsp;  
 &nbsp;  
 &nbsp;  
@@ -123,7 +121,9 @@ ConVisualizaciones &larr; VISUALIZACIONES ⋈<sub>$1==$4 AND $2&lt;&gt;$6 AND $3
 Π<sub>Titulo </sub> (ConVisualizaciones)
   
 ### Justificación
-Obtenemos el código de la categoría Música y con este los contenidos que corresponden a dicha categoría. De esos filtramos los que son de dominio Privado. Finalmente realizamos un join con la tabla Visualizaciones con las condiciones necesarias de fecha e email. De todo eso proyectamos únicamente el título.
+Obtenemos el código de la categoría Música y con este los contenidos que corresponden a dicha categoría. De esos filtramos los que son de dominio Privado. Finalmente realizamos un join con la tabla Visualizaciones con las condiciones necesarias de fecha e email. De todo eso proyectamos únicamente el título.  
+&nbsp;  
+&nbsp;  
 ## Ejercicio 3
 ### Script SQL
 ```
@@ -243,6 +243,8 @@ Los datos de prueba incluyen:
 
 El resultado esperado debería incluir únicamente los del primer ítem.  
 El resultado obtenido coincide con el resultado esperado.  
+&nbsp;  
+&nbsp;  
 ## Ejercicio 6
 ### Script SQL
 ```
@@ -270,7 +272,9 @@ and estadoDonacion = 'PENDIENTE';
 ![Captura de Pantalla 2022-06-15 a la(s) 10 17 29](https://user-images.githubusercontent.com/101828758/173836382-e367ac8d-868f-4113-a761-d980dd9851bd.png)
 
 ### Justificación
-Realizamos la union de dos consultas, por un lado aquellas cuyo estado es aprobado y por otro las pendientes. En las pendientes indicamos que la columna de estado diga 'Transacción programada'. En ambas renombramos la columna fechaAcreditación por Fecha. También filtramos en ambas consultas por usuarios cuyo nickname sea de largo mayor o igual a 5 caracteres.
+Realizamos la union de dos consultas, por un lado aquellas cuyo estado es aprobado y por otro las pendientes. En las pendientes indicamos que la columna de estado diga 'Transacción programada'. En ambas renombramos la columna fechaAcreditación por Fecha. También filtramos en ambas consultas por usuarios cuyo nickname sea de largo mayor o igual a 5 caracteres.  
+&nbsp;  
+&nbsp;  
 ## Ejercicio 7
 ### Script SQL
 ```
