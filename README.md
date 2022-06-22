@@ -126,6 +126,8 @@ Obtenemos el código de la categoría Música y con este los contenidos que corr
 &nbsp;  
 &nbsp;  
 &nbsp;  
+&nbsp;  
+&nbsp;  
 ## Ejercicio 3
 ### Script SQL
 ```
@@ -275,6 +277,8 @@ and estadoDonacion = 'PENDIENTE';
 
 ### Justificación
 Realizamos la union de dos consultas, por un lado aquellas cuyo estado es aprobado y por otro las pendientes. En las pendientes indicamos que la columna de estado diga 'Transacción programada'. En ambas renombramos la columna fechaAcreditación por Fecha. También filtramos en ambas consultas por usuarios cuyo nickname sea de largo mayor o igual a 5 caracteres.  
+&nbsp;  
+&nbsp;  
 &nbsp;  
 &nbsp;  
 ## Ejercicio 7
