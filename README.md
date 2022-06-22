@@ -27,6 +27,13 @@
 &nbsp;  
 &nbsp;  
 &nbsp;  
+&nbsp;  
+&nbsp;  
+&nbsp;  
+&nbsp;  
+&nbsp;  
+&nbsp;  
+&nbsp;  
 
 ## Ejercicio 1
 ### Script SQL
