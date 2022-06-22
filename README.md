@@ -122,7 +122,8 @@ and cont.fechaEmision in (  select min(fechaEmision)
                                                         from VISUALIZACION)             );
 ```
 ### Resultado obtenido
-![Captura de Pantalla 2022-06-14 a la(s) 10 45 08](https://user-images.githubusercontent.com/101828758/173592461-624c26fe-681a-45a3-8b67-dcd5acfa693b.png)
+![Captura de Pantalla 2022-06-21 a la(s) 21 31 22](https://user-images.githubusercontent.com/101828758/174918369-950a2a88-2249-427e-ba4a-ef6b596477f8.png)
+
 
 ### Algebra relacional
 Visualizados &larr; Π<sub>codContenido</sub>(VISUALIZACION)  
@@ -429,7 +430,7 @@ on nombreCategoria is not NULL
 group by con.dominio, u.nombre, prcEmisiones, nombreCategoria;
 ```
 ### Resultado obtenido
-![Captura de Pantalla 2022-06-21 a la(s) 18 27 07](https://user-images.githubusercontent.com/101828758/174900181-0cda722c-0d66-4974-b112-91b26c7707bb.png)
+![Captura de Pantalla 2022-06-21 a la(s) 21 29 46](https://user-images.githubusercontent.com/101828758/174918213-404ef204-b85d-4f10-aff2-82a708367a8d.png)
 
 ### Justificación
 Obtenemos las distintas consultas por separado para contenido Privado y Público, y luego las unimos a través de la función Union. Dentro de cada dominio realizamos distintas consultas para obtener la información necesaria unidas entre sí con Inner Join múltiples. Obtenemos el total de emisiones de dicho dominio, y lo utilizamos para calcular el porcentaje de emisines del usuario. Este porcentaje lo redondeamos con la función round y lo concatenamos con el símbolo de porcentaje utilizando || '%'. A su vez obtenemos el nombre de la categoría más vista con la función max, y realizando un join entre Visualización, Contenido y Categoria para obtener su nombre. A todas estas subconsultas les asignamos el nombre de columna correspondiente y agrupamos los resultados según ellas.
