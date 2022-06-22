@@ -8,6 +8,26 @@
 | Licenciatura en Sistemas |
 | Universidad ORT Uruguay |
 
+## Indice
+|Ejercicio |Número de página |
+|--- |--- |
+|Ejercicio 1 | 2|
+|Ejercicio 2 | 3|
+|Ejercicio 3 | 3|
+|Ejercicio 4 | 5|
+|Ejercicio 5 | 5|
+|Ejercicio 6 | 7|
+|Ejercicio 7 | 8|
+|Ejercicio 8 | 9|
+|Ejercicio 9 | 9|
+|Ejercicio 10 | 10|
+
+&nbsp;  
+&nbsp;  
+&nbsp;  
+&nbsp;  
+&nbsp;  
+
 ## Ejercicio 1
 ### Script SQL
 ```
