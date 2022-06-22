@@ -46,6 +46,8 @@ insert into CONTENIDO values ('27', 'Titulo27', DATE '2022-02-28', 'pepito@hotma
 insert into CONTENIDO values ('28', 'Titulo28', DATE '2022-03-16', 'pepito@hotmail.com', 02, 'PRIVADO');
 insert into CONTENIDO values ('29', 'Titulo29', DATE '2022-03-01', 'fulano@hotmail.com', 03, 'PRIVADO');
 insert into CONTENIDO values ('30', 'Titulo30', DATE '2022-03-15', 'fulano@hotmail.com', 03, 'PUBLICO');
+insert into CONTENIDO values ('31', 'Titulo31', DATE '2020-08-05', 'maria@hotmail.com', 03, 'PRIVADO');
+insert into CONTENIDO values ('32', 'Titulo32', DATE '2020-08-05', 'maria@hotmail.com', 01, 'PRIVADO');
 
 --Datos de VISUALIZACION
 insert into VISUALIZACION values ('09', 'maria@hotmail.com', DATE '2022-05-05');
@@ -53,10 +55,12 @@ insert into VISUALIZACION values ('08', 'juanita@hotmail.com', DATE '2021-05-05'
 insert into VISUALIZACION values ('10', 'maria@hotmail.com', DATE '2021-03-05');
 insert into VISUALIZACION values ('13', 'juanita@hotmail.com', DATE '2022-06-05');
 insert into VISUALIZACION values ('13', 'pepito@hotmail.com', DATE '2022-03-05');
+insert into VISUALIZACION values ('12', 'fulano@hotmail.com', DATE '2020-06-05');
 insert into VISUALIZACION values ('20', 'rosita@hotmail.com', DATE '2022-04-01');
 insert into VISUALIZACION values ('20', 'rosita@hotmail.com', DATE '2022-04-30');
 insert into VISUALIZACION values ('20', 'rosita@hotmail.com', DATE '2022-03-31');
 insert into VISUALIZACION values ('20', 'rosita@hotmail.com', DATE '2022-05-01');
+insert into VISUALIZACION values ('20', 'pedro@hotmail.com', DATE '2022-05-01');
 insert into VISUALIZACION values ('20', 'pepito@hotmail.com', DATE '2022-04-01');
 insert into VISUALIZACION values ('20', 'pepito@hotmail.com', DATE '2022-04-30');
 
